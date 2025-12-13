@@ -4,6 +4,7 @@ import {
     FaTwitter, FaMedium, FaWhatsapp, FaPaperPlane, FaInstagram, FaPhone
 } from 'react-icons/fa';
 import { socialLinks, getWhatsappLink } from '../../data/socialLinks';
+import { sendEmail } from '../../utils/emailService';
 import './Contact.css';
 
 const Contact = () => {
@@ -54,14 +55,21 @@ const Contact = () => {
         if (!validateForm()) return;
 
         setIsSubmitting(true);
+        setSubmitStatus(null);
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+        const result = await sendEmail(formData);
+
+        setIsSubmitting(false);
+
+        if (result.success) {
             setSubmitStatus('success');
             setFormData({ name: '', email: '', message: '' });
-
             setTimeout(() => setSubmitStatus(null), 5000);
-        }, 1500);
+        } else {
+            console.error('Failed to send email:', result.error);
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus(null), 5000);
+        }
     };
 
     const contactInfo = [
@@ -191,6 +199,8 @@ const Contact = () => {
                             {errors.email && <span className="contact__error">{errors.email}</span>}
                         </div>
 
+
+
                         <div className="contact__form-group">
                             <label htmlFor="message" className="contact__label">Message</label>
                             <textarea
@@ -223,6 +233,13 @@ const Contact = () => {
                         {submitStatus === 'success' && (
                             <div className="contact__success">
                                 Message sent successfully! I'll get back to you soon.
+                            </div>
+                        )}
+                        {submitStatus === 'error' && (
+                            <div className="contact__error-message">
+                                Failed to send message. Please try again or use WhatsApp/Email directly.
+                                <br />
+                                <small>(Note: EmailJS keys might be missing)</small>
                             </div>
                         )}
                     </form>
