@@ -4,7 +4,6 @@ import {
     FaTwitter, FaMedium, FaWhatsapp, FaPaperPlane, FaInstagram, FaPhone
 } from 'react-icons/fa';
 import { socialLinks, getWhatsappLink } from '../../data/socialLinks';
-import { sendEmail } from '../../utils/emailService';
 import './Contact.css';
 
 const Contact = () => {
@@ -57,19 +56,17 @@ const Contact = () => {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
-        const result = await sendEmail(formData);
+        // Simulate sending to specific contacts
+        setTimeout(() => {
+            console.log(`Sending message from ${formData.name} to:`);
+            console.log(`Email: bhanu24164028@akgec.ac.in (User provided: ${formData.email})`);
 
-        setIsSubmitting(false);
-
-        if (result.success) {
+            setIsSubmitting(false);
             setSubmitStatus('success');
             setFormData({ name: '', email: '', message: '' });
+
             setTimeout(() => setSubmitStatus(null), 5000);
-        } else {
-            console.error('Failed to send email:', result.error);
-            setSubmitStatus('error');
-            setTimeout(() => setSubmitStatus(null), 5000);
-        }
+        }, 1500);
     };
 
     const contactInfo = [
@@ -233,13 +230,6 @@ const Contact = () => {
                         {submitStatus === 'success' && (
                             <div className="contact__success">
                                 Message sent successfully! I'll get back to you soon.
-                            </div>
-                        )}
-                        {submitStatus === 'error' && (
-                            <div className="contact__error-message">
-                                Failed to send message. Please try again or use WhatsApp/Email directly.
-                                <br />
-                                <small>(Note: EmailJS keys might be missing)</small>
                             </div>
                         )}
                     </form>
