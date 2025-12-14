@@ -41,19 +41,19 @@ const projects = [
         solution: 'TaxPal is an all-in-one financial dashboard that automates expense tracking, provides real-time tax estimation, and streamlines invoicing. It consolidates financial data into actionable insights with multi-currency support and secure reporting.',
         outcome: 'Users reduced administrative time by 40% and improved tax compliance. The unified platform provided clarity on financial health, enabling better decision-making and stress-free tax filing for small businesses and freelancers.'
     },
-    {
-        id: 4,
-        title: 'Social Media Dashboard',
-        description: 'Analytics dashboard for social media management with real-time metrics, engagement tracking, and customizable reports for multiple platforms.',
-        image: '',
-        techStack: ['Next.js', 'PostgreSQL', 'Prisma', 'Tailwind'],
-        github: 'https://github.com',
-        demo: 'https://vercel.app',
-        createdAt: '2024-04-05',
-        problem: 'Social media managers lack a unified tool to track performance metrics across multiple platforms efficiently.',
-        solution: 'Created a centralized dashboard aggregating data from various social APIs, featuring customizable reports and real-time analytics.',
-        outcome: 'Saved managers ~5 hours per week on reporting and provided actionable insights to improve content strategy.'
-    },
+    // {
+    //     id: 4,
+    //     title: 'Social Media Dashboard',
+    //     description: 'Analytics dashboard for social media management with real-time metrics, engagement tracking, and customizable reports for multiple platforms.',
+    //     image: '',
+    //     techStack: ['Next.js', 'PostgreSQL', 'Prisma', 'Tailwind'],
+    //     github: 'https://github.com',
+    //     demo: 'https://vercel.app',
+    //     createdAt: '2024-04-05',
+    //     problem: 'Social media managers lack a unified tool to track performance metrics across multiple platforms efficiently.',
+    //     solution: 'Created a centralized dashboard aggregating data from various social APIs, featuring customizable reports and real-time analytics.',
+    //     outcome: 'Saved managers ~5 hours per week on reporting and provided actionable insights to improve content strategy.'
+    // },
     {
         id: 5,
         title: 'Portfolio Website',
@@ -67,19 +67,19 @@ const projects = [
         solution: 'I built a portfolio website to showcase my work, skills, and experience in one professional place.',
         outcome: 'You can see at https://bpsingh.vercel.app/'
     },
-    {
-        id: 6,
-        title: 'Blog Platform',
-        description: 'A full-stack blogging platform with markdown support, user authentication, comments system, and SEO optimization for content creators.',
-        image: '',
-        techStack: ['Next.js', 'MDX', 'MongoDB', 'NextAuth'],
-        github: 'https://github.com',
-        demo: 'https://vercel.app',
-        createdAt: '2024-06-01',
-        problem: 'Writers often struggle with complex CMS platforms that lack developer-friendly features like Markdown support.',
-        solution: 'Built a lightweight, SEO-optimized blog platform supporting Markdown, secure authentication, and a commenting system.',
-        outcome: 'Provided a seamless writing experience with 100% SEO scores and improved content discoverability.'
-    },
+    // {
+    //     id: 6,
+    //     title: 'Blog Platform',
+    //     description: 'A full-stack blogging platform with markdown support, user authentication, comments system, and SEO optimization for content creators.',
+    //     image: '',
+    //     techStack: ['Next.js', 'MDX', 'MongoDB', 'NextAuth'],
+    //     github: 'https://github.com',
+    //     demo: 'https://vercel.app',
+    //     createdAt: '2024-06-01',
+    //     problem: 'Writers often struggle with complex CMS platforms that lack developer-friendly features like Markdown support.',
+    //     solution: 'Built a lightweight, SEO-optimized blog platform supporting Markdown, secure authentication, and a commenting system.',
+    //     outcome: 'Provided a seamless writing experience with 100% SEO scores and improved content discoverability.'
+    // },
 ];
 
 export const getProjects = () => {
