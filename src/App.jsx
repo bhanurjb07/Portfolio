@@ -8,8 +8,6 @@ import Projects from './pages/Projects/Projects';
 import Experience from './pages/Experience/Experience';
 import Education from './pages/Education/Education';
 import Contact from './pages/Contact/Contact';
-import AdminLogin from './admin/AdminLogin';
-import AdminDashboard from './admin/AdminDashboard';
 import './App.css';
 
 // Portfolio component (main site)
@@ -36,8 +34,6 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Portfolio />} />
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </div>
   );

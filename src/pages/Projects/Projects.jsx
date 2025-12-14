@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { getProjects } from '../../data/projectData';
 import './Projects.css';
 
+
 const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [expandedProject, setExpandedProject] = useState(null);
@@ -12,25 +13,8 @@ const Projects = () => {
     };
 
     useEffect(() => {
-        // Load projects from data source
+        // Load projects from static data
         setProjects(getProjects());
-
-        // Listen for storage changes (when admin updates projects)
-        const handleStorageChange = () => {
-            setProjects(getProjects());
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        // Also check periodically for same-tab updates
-        const interval = setInterval(() => {
-            setProjects(getProjects());
-        }, 1000);
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-            clearInterval(interval);
-        };
     }, []);
 
     return (

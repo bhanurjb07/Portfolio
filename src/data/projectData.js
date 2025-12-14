@@ -1,23 +1,25 @@
-// Initial project data
-const initialProjects = [
+import assets from '../assets/images/assets';
+
+
+const projects = [
     {
         id: 1,
-        title: 'E-Commerce Platform',
-        description: 'A full-featured e-commerce platform with product listings, shopping cart, checkout flow, and admin panel for product management. Built with React and Node.js.',
-        image: '',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'CSS'],
-        github: 'https://github.com',
+        title: 'Note-Taking-Application',
+        description: 'Built a responsive full-stack application using the MERN stack for efficient note management with real-time updates',
+        image: '', 
+        techStack: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind'],
+        github: 'https://github.com/bhanurjb07/Note-Taking-App.git',
         demo: 'https://vercel.app',
         createdAt: '2024-01-15',
-        problem: 'Small businesses struggle to set up affordable, engaging online stores with custom branding and easy inventory management.',
-        solution: 'Developed a scalable MERN stack platform with a responsive frontend, an intuitive admin dashboard for inventory tracking, and a secure checkout flow.',
-        outcome: 'Reduced store setup time by 40% for beta users and streamlined inventory management with real-time stock updates.'
+        problem: 'Users needed a simple, persistent way to organize thoughts without the complexity or clutter of enterprise tools',
+        solution: 'Developed a RESTful API with Node.js and Express, integrated with a React frontend using Context API for state.',
+        outcome: 'Delivered a seamless, bug-free experience allowing users to create, edit, and delete notes with persistent MongoDB storage.'
     },
     {
         id: 2,
         title: 'Task Management App',
         description: 'A productivity application for managing tasks and projects with drag-and-drop functionality, real-time updates, and team collaboration features.',
-        image: '',
+        image: "",
         techStack: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
         github: 'https://github.com',
         demo: 'https://vercel.app',
@@ -28,16 +30,16 @@ const initialProjects = [
     },
     {
         id: 3,
-        title: 'Weather Dashboard',
-        description: 'A beautiful weather dashboard that displays current conditions, forecasts, and weather alerts. Features location-based weather and interactive maps.',
-        image: '',
-        techStack: ['React', 'OpenWeather API', 'Chart.js', 'CSS'],
-        github: 'https://github.com',
-        demo: 'https://vercel.app',
-        createdAt: '2024-03-10',
-        problem: 'Users need accurate, visually appealing weather data for their specific locations without navigating complex interfaces.',
-        solution: 'Integrated OpenWeather API to fetch real-time data and visualized trends using Chart.js in a clean, responsive UI.',
-        outcome: 'Delivered accurate weather insights with a 99% uptime and enhanced user engagement through interactive charts.'
+        title: 'TaxPal',
+        description: 'TaxPal is a comprehensive financial management application designed specifically for freelancers and gig workers. It helps users manage their income, track expenses, create budgets, estimate taxes, and generate detailed financial reports.',
+        image: assets.taxpal,
+        techStack: ['React', 'Node.js', 'Express', 'Chart.js', 'MongoDB'],
+        github: 'https://github.com/bhanurjb07/Taxpal-Infosys.git',
+        demo: 'https://taxpal-infosys.vercel.app/',
+        createdAt: '2025-09-10',
+        problem: 'Managing finances is chaotic for freelancers. Fragmented tools for tracking expenses, taxes, and invoicing lead to disorganization, missed deductions, and hours wasted on manual administrative work instead of growing the business.',
+        solution: 'TaxPal is an all-in-one financial dashboard that automates expense tracking, provides real-time tax estimation, and streamlines invoicing. It consolidates financial data into actionable insights with multi-currency support and secure reporting.',
+        outcome: 'Users reduced administrative time by 40% and improved tax compliance. The unified platform provided clarity on financial health, enabling better decision-making and stress-free tax filing for small businesses and freelancers.'
     },
     {
         id: 4,
@@ -56,14 +58,14 @@ const initialProjects = [
         id: 5,
         title: 'Portfolio Website',
         description: 'A modern, responsive portfolio website built with React and plain CSS. Features smooth animations, dark theme, and optimized performance.',
-        image: '',
+        image: assets.portfolio,
         techStack: ['React', 'Vite', 'CSS', 'React Icons'],
-        github: 'https://github.com',
-        demo: 'https://vercel.app',
+        github: 'https://github.com/bhanurjb07/Portfolio.git',
+        demo: 'https://bpsingh.vercel.app/',
         createdAt: '2024-05-15',
-        problem: 'Need a professional, high-performance way to showcase skills and projects to potential recruiters and clients.',
-        solution: 'Designed and built a custom React portfolio with a focus on clean aesthetics, responsive design, and fast load times.',
-        outcome: 'Successfully established a personal brand online, leading to increased visibility and networking opportunities.'
+        problem: 'My skills and projects were scattered across multiple platforms, making it hard to present them clearly.',
+        solution: 'I built a portfolio website to showcase my work, skills, and experience in one professional place.',
+        outcome: 'You can see at https://bpsingh.vercel.app/'
     },
     {
         id: 6,
@@ -80,51 +82,8 @@ const initialProjects = [
     },
 ];
 
-// Get projects from localStorage or use initial data
 export const getProjects = () => {
-    const stored = localStorage.getItem('portfolioProjects');
-    if (stored) {
-        return JSON.parse(stored);
-    }
-    // Initialize with default projects
-    localStorage.setItem('portfolioProjects', JSON.stringify(initialProjects));
-    return initialProjects;
+    return projects;
 };
 
-// Save projects to localStorage
-export const saveProjects = (projects) => {
-    localStorage.setItem('portfolioProjects', JSON.stringify(projects));
-};
-
-// Add a new project
-export const addProject = (project) => {
-    const projects = getProjects();
-    const newProject = {
-        ...project,
-        id: Date.now(),
-        createdAt: new Date().toISOString().split('T')[0],
-    };
-    const updatedProjects = [...projects, newProject];
-    saveProjects(updatedProjects);
-    return updatedProjects;
-};
-
-// Update a project
-export const updateProject = (id, updatedData) => {
-    const projects = getProjects();
-    const updatedProjects = projects.map((p) =>
-        p.id === id ? { ...p, ...updatedData } : p
-    );
-    saveProjects(updatedProjects);
-    return updatedProjects;
-};
-
-// Delete a project
-export const deleteProject = (id) => {
-    const projects = getProjects();
-    const updatedProjects = projects.filter((p) => p.id !== id);
-    saveProjects(updatedProjects);
-    return updatedProjects;
-};
-
-export default { getProjects, saveProjects, addProject, updateProject, deleteProject };
+export default { getProjects };
