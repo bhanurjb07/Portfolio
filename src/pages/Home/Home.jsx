@@ -28,7 +28,7 @@ const Home = () => {
                                 View Projects
                                 <FaArrowRight />
                             </button>
-                            <a href={resumeee} className="btn btn-secondary" download>
+                            <a href={resume} className="btn btn-secondary" download>
                                 <FaDownload />
                                 Download Resume
                             </a>
