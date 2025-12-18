@@ -33,6 +33,9 @@ function App() {
   return (
     <div className="app">
       <Routes>
+        {
+          jujujpoui
+        }
         <Route path="/" element={<Portfolio />} />
       </Routes>
     </div>
